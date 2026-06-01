@@ -204,5 +204,20 @@ public class BinaryTree03 {
         System.out.println("Mahasiswa dengan IPK terbesar:");
         current.mahasiswa.tampilInformasi();
     }
+
+    public void tampilMahasiswaIPKdiAtas(double ipkBatas) {
+        tampilMahasiswaIPKdiAtas(root, ipkBatas);
+    }
+
+    private void tampilMahasiswaIPKdiAtas(Node03 node, double ipkBatas) {
+        if (node != null) {
+            tampilMahasiswaIPKdiAtas(node.left, ipkBatas);
+
+            if (node.mahasiswa.ipk > ipkBatas) {
+                node.mahasiswa.tampilInformasi();
+            }
+            tampilMahasiswaIPKdiAtas(node.right, ipkBatas);
+        }
+    }
 }
 
