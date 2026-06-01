@@ -160,5 +160,22 @@ public class BinaryTree03 {
                         successor.left = current.left;
         }
     }
+
+    public void addRekursif(Mahasiswa03 mahasiswa) {
+        root = addRekursif(root, mahasiswa);
+    }
+
+    private Node03 addRekursif(Node03 current, Mahasiswa03 mahasiswa) {
+        if (current == null) {
+            return new Node03(mahasiswa);
+        }
+        
+        if (mahasiswa.ipk < current.mahasiswa.ipk) {
+            current.left = addRekursif(current.left, mahasiswa);
+        } else {
+            current.right = addRekursif(current.right, mahasiswa);
+        }
+        return current;
+    }
 }
 
